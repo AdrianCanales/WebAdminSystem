@@ -67,6 +67,15 @@ namespace WebAdminSystem {
         protected global::System.Web.UI.WebControls.Button btnAgregar;
         
         /// <summary>
+        /// Control btnEdit.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEdit;
+        
+        /// <summary>
         /// Control lbRespuesta.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace WebAdminSystem {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lbRespuesta;
+        
+        /// <summary>
+        /// Control lbID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lbID;
         
         /// <summary>
         /// Control datagrid_locales.

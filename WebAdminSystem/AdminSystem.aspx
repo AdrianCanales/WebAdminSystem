@@ -48,11 +48,30 @@
                     </div>
                 </div>
                 <br /><br />
-                <asp:Button ID="btnAgregar" CssClass="btn btn-success btn-sm center-block" OnClick="btnAgregar_Click"  runat="server" Text="Registrar Local" />
+                <asp:Button ID="btnAgregar" CssClass="btn btn-success btn-sm center-block" OnClick="btnAgregar_Click"  runat="server" Text="Registrar Local" /><br />
+                <asp:Button ID="btnEdit" CssClass="btn btn-primary btn-sm center-block" OnClick="btnEdit_Click"  runat="server" Text="Editar Local" />
                 <asp:Label ID="lbRespuesta" runat="server" CssClass="" Text=""></asp:Label>
+                <asp:Label ID="lbID" runat="server" CssClass="" Text=""></asp:Label>
             </div>
             <div class="col-md-8">
-                <asp:GridView ID="datagrid_locales" CssClass="table table-bordered" runat="server"></asp:GridView>
+                <asp:GridView ID="datagrid_locales" OnRowCommand="datagrid_locales_RowCommand" AutoGenerateColumns="false" CssClass="table table-bordered" runat="server">
+                    <HeaderStyle CssClass="btn-info" />
+
+                <EmptyDataTemplate>
+                    <h4 class="text-center text-danger">No existen Registros</h4>
+                </EmptyDataTemplate>
+
+                <Columns>
+                    <asp:BoundField HeaderText="#" DataField="id_local" />
+                    <asp:BoundField HeaderText="Nombre local" DataField="Nombre" />
+                    <asp:BoundField HeaderText="Direccion local" DataField="Direccion" />
+                    <asp:BoundField HeaderText="Admin" DataField="nombre" />
+                    <asp:ButtonField CommandName="btnSeleccionar" 
+                        Text="<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>" 
+                        HeaderText="<span class='glyphicon glyphicon-pencil' aria-hidden='true'></span>" 
+                        ControlStyle-CssClass="btn btn-primary btn-sm" ButtonType="Link" />
+                </Columns>
+                </asp:GridView>
 
             </div>
         </div>

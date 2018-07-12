@@ -38,6 +38,7 @@ namespace WebAdminSystem
             txtDireccionLocal.Text = "";
             txtNombreUsuario.Text = "";
             txtClave.Text = "";
+            lbID.Text = "";
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -75,9 +76,58 @@ namespace WebAdminSystem
             catch (Exception)
             {
 
-                throw;
+              
             }
 
+        }
+
+        protected void datagrid_locales_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            try
+            {
+                int fila = Convert.ToInt32(e.CommandArgument);
+                int id_L = Convert.ToInt32(datagrid_locales.Rows[fila].Cells[0].Text);
+                string NameLocal = datagrid_locales.Rows[fila].Cells[1].Text;
+                string direccion = datagrid_locales.Rows[fila].Cells[1].Text;
+                string admin = datagrid_locales.Rows[fila].Cells[1].Text;
+                if (e.CommandName== "btnSeleccionar")
+                {
+                    lbID.Text = id_L.ToString();
+                    txtNombreLocal.Text = NameLocal;
+                    txtDireccionLocal.Text = direccion;
+                }
+
+
+
+
+            }
+            catch (Exception)
+            {
+
+                
+            }
+        }
+
+        protected void btnEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = Convert.ToInt32(lbID.Text);
+                Local original = new Local();
+                original = contexto.Local.Find(id);
+                original.Nombre = txtNombreLocal.Text;
+                original.Direccion = txtDireccionLocal.Text;
+                contexto.SaveChanges();
+                Mostrar();
+                Limpiar();
+                lbRespuesta.CssClass = "text-success";
+                lbRespuesta.Text = "Actualizado con exito.";
+            }
+            catch (Exception)
+            {
+
+                
+            }
         }
     }
 }
